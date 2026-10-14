@@ -1,11 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horizonte Viajes · Paquetes turísticos que emocionan</title>
+<meta name="description" content="Agencia de viajes con paquetes a Machu Picchu, Cancún, París, Bali, Japón y más. Reserva online fácil y seguro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    
+<body data-page="index.html">
+<div id="site-header"></div>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-slides" id="heroSlides" aria-hidden="true"></div>
+    <div class="container">
+      <span class="eyebrow" style="color:#ffb347">✈ Tu próxima aventura empieza aquí</span>
+      <h1>El mundo te está esperando. <em>Vívelo.</em></h1>
+      <p class="lead">Paquetes turísticos con todo incluido, asesoría personalizada y la mejor relación calidad–precio. Reserva en minutos, viaja sin preocupaciones.</p>
+      <a href="viajes.html" class="btn">Explorar viajes</a>
+      <a href="reservas.html" class="btn btn-light" style="margin-left:.5rem">Reservar ahora</a>
+
+      <form class="search-box" id="searchForm" role="search">
+        <div><label for="sQ">Destino</label><input id="sQ" type="text" placeholder="París, Bali, Cusco..." list="dl"><datalist id="dl"></datalist></div>
+        <div><label for="sCat">Tipo de viaje</label><select id="sCat"></select></div>
+        <div><label for="sMax">Presupuesto</label>
+          <select id="sMax"><option value="">Cualquiera</option><option value="800">Hasta US$ 800</option><option value="1500">Hasta US$ 1,500</option><option value="2500">Hasta US$ 2,500</option></select></div>
+        <button class="btn" type="submit">🔍 Buscar</button>
+      </form>
+    </div>
+    <div class="hero-dots" id="heroDots"></div>
+  </section>
+  
+  <!-- STATS -->
+  <div class="stats">
+    <div class="container grid g4">
+      <div class="stat"><b data-count="12000">0</b><span>viajeros felices</span></div>
+      <div class="stat"><b data-count="45">0</b><span>destinos en el mundo</span></div>
+      <div class="stat"><b data-count="15">0</b><span>años de experiencia</span></div>
+      <div class="stat"><b data-count="98" data-suffix="%">0</b><span>nos recomienda</span></div>
+    </div>
+  </div>
+
+  <!-- POR QUÉ -->
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">¿Por qué Horizonte?</span>
+        <h2>Viajar debería ser fácil y emocionante</h2>
+        <p>Nos encargamos de todos los detalles para que tú solo te preocupes de disfrutar.</p>
+      </div>
+      <div class="grid g4">
+        <div class="feature reveal"><div class="ic">💰</div><h3>Mejor precio</h3><p>Tarifas directas con hoteles y aerolíneas. Si encuentras más barato, igualamos.</p></div>
+        <div class="feature reveal"><div class="ic">🛡️</div><h3>Reserva segura</h3><p>Pagos protegidos, cancelación flexible y seguro de viaje opcional.</p></div>
+        <div class="feature reveal"><div class="ic">🧑‍✈️</div><h3>Asesoría experta</h3><p>Agentes que han recorrido los destinos y arman tu itinerario ideal.</p></div>
+        <div class="feature reveal"><div class="ic">📞</div><h3>Soporte 24/7</h3><p>Te acompañamos por WhatsApp durante todo tu viaje, a cualquier hora.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINOS POPULARES -->
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Destinos populares</span>
+        <h2>Lugares que te quitarán el aliento</h2>
+        <p>Los paquetes favoritos de nuestros viajeros esta temporada.</p>
+      </div>
+      <div class="grid g3" id="popular"></div>
+      <div style="text-align:center;margin-top:2.5rem"><a href="viajes.html" class="btn btn-ghost">Ver todos los viajes →</a></div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="deal reveal">
+        <div>
+          <span class="eyebrow" style="color:#ffd9a8">🔥 Oferta por tiempo limitado</span>
+          <h2>Hasta 10% extra con el cupón <u>VIAJA10</u></h2>
+          <p style="opacity:.92;margin-bottom:1.4rem">Úsalo al reservar cualquier paquete y ahorra más. Válido hasta fin de mes.</p>
+          <a href="reservas.html" class="btn btn-light">Aprovechar oferta</a>
+        </div>
+        <div>
+          <p style="margin-bottom:.6rem;font-weight:500">La oferta termina en:</p>
+          <div class="countdown" id="countdown" aria-live="off">
+            <div><b id="cd-d">00</b><span>Días</span></div><div><b id="cd-h">00</b><span>Horas</span></div>
+            <div><b id="cd-m">00</b><span>Min</span></div><div><b id="cd-s">00</b><span>Seg</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PASOS -->
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Así de simple</span>
+        <h2>Reserva tu viaje en 4 pasos</h2>
+      </div>
+      <div class="grid g4 steps">
+        <div class="step-card reveal"><h3>Elige tu destino</h3><p>Explora paquetes y filtra por precio, duración o tipo de viaje.</p></div>
+        <div class="step-card reveal"><h3>Personaliza</h3><p>Escoge fecha, viajeros y extras como seguro, traslados o guía.</p></div>
+        <div class="step-card reveal"><h3>Confirma y paga</h3><p>Asegura tu cupo con un adelanto desde el 30%.</p></div>
+        <div class="step-card reveal"><h3>¡A viajar!</h3><p>Recibes tu itinerario, vouchers y soporte durante todo el viaje.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section style="background:color-mix(in srgb,var(--primary) 6%,var(--bg))">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Opiniones reales</span>
+        <h2>Lo que dicen nuestros viajeros</h2>
+      </div>
+      <div class="slider" id="slider"><div class="slides" id="slides"></div></div>
+      <div class="slider-nav" id="sliderNav"></div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section>
+    <div class="container">
+      <div class="cta reveal" id="cta" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=70')">
+        <span class="eyebrow" style="color:#ffb347">Ofertas en tu correo</span>
+        <h2>Recibe los mejores precios antes que nadie</h2>
+        <p style="opacity:.92">Suscríbete y llévate una guía de viaje gratis + 5% de descuento en tu primera reserva.</p>
+        <form class="newsletter" id="newsForm" novalidate>
+          <input type="email" id="newsMail" placeholder="tucorreo@ejemplo.com" aria-label="Correo electrónico" required>
+          <button class="btn" type="submit">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
 </body>
 </html>
