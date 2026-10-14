@@ -34,3 +34,79 @@
     </div>
   </section>
 </main>
+
+<div class="overlay lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
+  <button class="close" aria-label="Cerrar">✕</button>
+  <button class="lb-nav lb-prev" aria-label="Anterior">‹</button>
+  <img id="lbImg" alt="">
+  <button class="lb-nav lb-next" aria-label="Siguiente">›</button>
+  <div class="cap" id="lbCap"></div>
+</div>
+
+<div id="site-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/galeria.js"></script>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="container grid g4">
+      <div class="stat"><b data-count="12000">0</b><span>viajeros felices</span></div>
+      <div class="stat"><b data-count="45">0</b><span>destinos en el mundo</span></div>
+      <div class="stat"><b data-count="15">0</b><span>años de experiencia</span></div>
+      <div class="stat"><b data-count="98" data-suffix="%">0</b><span>nos recomienda</span></div>
+    </div>
+  </div>
+
+  <!-- POR QUÉ -->
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">¿Por qué Horizonte?</span>
+        <h2>Viajar debería ser fácil y emocionante</h2>
+        <p>Nos encargamos de todos los detalles para que tú solo te preocupes de disfrutar.</p>
+      </div>
+      <div class="grid g4">
+        <div class="feature reveal"><div class="ic">💰</div><h3>Mejor precio</h3><p>Tarifas directas con hoteles y aerolíneas. Si encuentras más barato, igualamos.</p></div>
+        <div class="feature reveal"><div class="ic">🛡️</div><h3>Reserva segura</h3><p>Pagos protegidos, cancelación flexible y seguro de viaje opcional.</p></div>
+        <div class="feature reveal"><div class="ic">🧑‍✈️</div><h3>Asesoría experta</h3><p>Agentes que han recorrido los destinos y arman tu itinerario ideal.</p></div>
+        <div class="feature reveal"><div class="ic">📞</div><h3>Soporte 24/7</h3><p>Te acompañamos por WhatsApp durante todo tu viaje, a cualquier hora.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINOS POPULARES -->
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Destinos populares</span>
+        <h2>Lugares que te quitarán el aliento</h2>
+        <p>Los paquetes favoritos de nuestros viajeros esta temporada.</p>
+      </div>
+      <div class="grid g3" id="popular"></div>
+      <div style="text-align:center;margin-top:2.5rem"><a href="viajes.html" class="btn btn-ghost">Ver todos los viajes →</a></div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="deal reveal">
+        <div>
+          <span class="eyebrow" style="color:#ffd9a8">🔥 Oferta por tiempo limitado</span>
+          <h2>Hasta 10% extra con el cupón <u>VIAJA10</u></h2>
+          <p style="opacity:.92;margin-bottom:1.4rem">Úsalo al reservar cualquier paquete y ahorra más. Válido hasta fin de mes.</p>
+          <a href="reservas.html" class="btn btn-light">Aprovechar oferta</a>
+        </div>
+        <div>
+          <p style="margin-bottom:.6rem;font-weight:500">La oferta termina en:</p>
+          <div class="countdown" id="countdown" aria-live="off">
+            <div><b id="cd-d">00</b><span>Días</span></div><div><b id="cd-h">00</b><span>Horas</span></div>
+            <div><b id="cd-m">00</b><span>Min</span></div><div><b id="cd-s">00</b><span>Seg</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
