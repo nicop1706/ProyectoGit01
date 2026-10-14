@@ -75,3 +75,40 @@ document.addEventListener('DOMContentLoaded', () => {
   renderLayout();
   document.dispatchEvent(new Event('layoutready'));
 });
+
+/* ===== PARTE 2/3 · Interacción: menú móvil, scroll, tema claro/oscuro y animaciones ===== */
+function initChrome() {
+  const hdr = $('#hdr'), burger = $('#burger'), links = $('#navLinks'), tt = $('#toTop');
+  const onScroll = () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 40);
+    tt && tt.classList.toggle('show', window.scrollY > 600);
+  };
+  onScroll(); addEventListener('scroll', onScroll, { passive: true });
+  burger.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    burger.textContent = open ? '✕' : '☰';
+  });
+  links.addEventListener('click', e => { if (e.target.tagName === 'A') links.classList.remove('open'); });
+  tt && tt.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+
+  const themeBtn = $('#themeBtn');
+  const apply = t => { document.documentElement.dataset.theme = t; themeBtn.textContent = t === 'dark' ? '☀️' : '🌙'; };
+  apply(store.get('hz_theme', matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  themeBtn.addEventListener('click', () => {
+    const t = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    store.set('hz_theme', t); apply(t);
+  });
+}
+
+/* ---------- Animaciones al hacer scroll ---------- */
+function initReveal() {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  $$('.reveal:not(.in)').forEach(el => io.observe(el));
+}
+
+/* ---------- Arranque ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  renderLayout(); initChrome(); initReveal();
+  document.dispatchEvent(new Event('layoutready'));
+});
