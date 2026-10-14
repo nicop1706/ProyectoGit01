@@ -84,3 +84,40 @@
               <input type="checkbox" id="terms" style="width:auto;margin-top:.3rem">Acepto los términos, la política de cancelación y el tratamiento de mis datos.</label>
               <div class="msg">Debes aceptar los términos para continuar.</div></div>
           </div>
+          
+          <!-- Paso 4 -->
+          <div class="wstep" data-step="4" id="doneStep"></div>
+
+          <div class="wnav" id="wnav">
+            <button type="button" class="btn btn-ghost" id="prev" style="visibility:hidden">← Atrás</button>
+            <button type="button" class="btn" id="next">Continuar →</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- RESUMEN -->
+      <aside class="summary" aria-label="Resumen de tu reserva">
+        <img id="sumImg" src="" alt="">
+        <div class="in">
+          <h3 id="sumName">Tu viaje</h3>
+          <p id="sumMeta" style="color:var(--muted);font-size:.88rem;margin-bottom:.6rem"></p>
+          <div id="sumLines"></div>
+          <p style="font-size:.78rem;color:var(--muted);margin-top:.8rem">🔒 Cancelación gratuita hasta 30 días antes de la salida.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">Consulta</span><h2>Mis reservas</h2><p>Las reservas hechas en este dispositivo aparecen aquí.</p></div>
+      <div class="form-card" style="overflow:auto" id="myRes"></div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/reservas.js"></script>
+</body>
+</html>
