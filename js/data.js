@@ -69,3 +69,25 @@ const DESTINOS = [
     desc:'Lodge en plena selva, caminatas nocturnas, observación de delfines rosados y aves.',
     incluye:['Vuelo Lima–Iquitos','Lodge en la selva','Todas las comidas','Excursiones guiadas','Bote privado'] }
 ];
+
+/* ===== PARTE 2/2 · Categorías, testimonios, preguntas frecuentes y funciones auxiliares ===== */
+const CATS = [['todos','Todos'],['playa','🏖️ Playa'],['cultura','🏛️ Cultura'],['aventura','🧗 Aventura'],['ciudad','🌆 Ciudad'],['romantico','💞 Romántico']];
+
+const TESTIMONIOS = [
+  { n:'María Fernández', c:'Lima, Perú', t:'Mi luna de miel en Santorini fue perfecta. Todo coordinado al detalle y con un trato muy cálido. ¡Volveremos a viajar con Horizonte!', r:5, d:'santorini' },
+  { n:'Carlos Mendoza', c:'Arequipa, Perú', t:'Reservé Machu Picchu en minutos y el soporte por WhatsApp me ayudó con el cambio de fecha. Cero estrés y precios muy justos.', r:5, d:'machu-picchu' },
+  { n:'Lucía Paredes', c:'Trujillo, Perú', t:'Viajamos en familia a Cancún todo incluido. Los niños felices y nosotros descansando. La mejor decisión del año.', r:5, d:'cancun' },
+  { n:'Andrés Villanueva', c:'Cusco, Perú', t:'Japón fue un sueño. El itinerario estaba tan bien armado que no perdimos tiempo en nada. Muy recomendable.', r:4, d:'tokio' }
+];
+
+const FAQ = [
+  ['¿Cómo puedo pagar mi reserva?','Aceptamos tarjetas Visa/Mastercard, Yape/Plin y transferencia bancaria. Con un adelanto del 30% aseguras tu cupo y el saldo se paga hasta 15 días antes de viajar.'],
+  ['¿Puedo cancelar o cambiar la fecha?','Sí. Hasta 30 días antes del viaje la cancelación es gratuita. Entre 30 y 15 días se retiene el 20%. Los cambios de fecha están sujetos a disponibilidad.'],
+  ['¿Los paquetes incluyen vuelos?','Depende del destino. En cada paquete verás el detalle exacto de lo que incluye. También armamos paquetes sin vuelo si ya tienes tus boletos.'],
+  ['¿Necesito visa o vacunas?','Te asesoramos según tu nacionalidad y destino. Después de reservar recibes una guía con los documentos y requisitos sanitarios.'],
+  ['¿Hacen viajes a medida o grupales?','Sí, diseñamos itinerarios personalizados y tarifas especiales para grupos de 10 o más personas, colegios y empresas.']
+];
+
+const money = n => 'US$ ' + Number(n).toLocaleString('en-US');
+const imgUrl = (d, w = 900) => U(d.foto, w);
+const byId = id => DESTINOS.find(d => d.id === id);
