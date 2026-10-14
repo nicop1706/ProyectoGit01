@@ -1,0 +1,30 @@
+/* ===== Horizonte Viajes — estilos ===== */
+:root{
+  --primary:#0e7c86; --primary-d:#0a5b63; --accent:#ff7a45; --accent-d:#e8602a;
+  --bg:#f7f9fb; --surface:#ffffff; --text:#1c2833; --muted:#62707e; --border:#e2e8ee;
+  --shadow:0 10px 30px rgba(15,40,60,.10); --shadow-lg:0 20px 50px rgba(15,40,60,.18);
+  --radius:18px; --maxw:1200px;
+  --font:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+[data-theme="dark"]{
+  --bg:#0d1419; --surface:#16202a; --text:#e8eef3; --muted:#9aa9b6; --border:#243442;
+  --shadow:0 10px 30px rgba(0,0,0,.4); --shadow-lg:0 20px 50px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button,input,select,textarea{font:inherit;color:inherit}
+.container{width:min(100% - 2.4rem,var(--maxw));margin-inline:auto}
+section{padding:5rem 0}
+.section-head{text-align:center;max-width:680px;margin:0 auto 3rem}
+.eyebrow{display:inline-block;color:var(--accent);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;margin-bottom:.6rem}
+h1,h2,h3,h4{line-height:1.2}
+h2{font-size:clamp(1.8rem,3.4vw,2.7rem);margin-bottom:.8rem}
+.section-head p{color:var(--muted)}
+.grid{display:grid;gap:1.6rem}
+.g3{grid-template-columns:repeat(auto-fill,minmax(310px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
