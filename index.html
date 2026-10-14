@@ -1,148 +1,180 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Horizonte Viajes · Paquetes turísticos que emocionan</title>
-<meta name="description" content="Agencia de viajes con paquetes a Machu Picchu, Cancún, París, Bali, Japón y más. Reserva online fácil y seguro.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizonte Premium | Agencia de Viajes</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuentes de Google para un aspecto elegante -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body data-page="index.html">
-<div id="site-header"></div>
-
-<main>
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div class="hero-slides" id="heroSlides" aria-hidden="true"></div>
-    <div class="container">
-      <span class="eyebrow" style="color:#ffb347">✈ Tu próxima aventura empieza aquí</span>
-      <h1>El mundo te está esperando. <em>Vívelo.</em></h1>
-      <p class="lead">Paquetes turísticos con todo incluido, asesoría personalizada y la mejor relación calidad–precio. Reserva en minutos, viaja sin preocupaciones.</p>
-      <a href="viajes.html" class="btn">Explorar viajes</a>
-      <a href="reservas.html" class="btn btn-light" style="margin-left:.5rem">Reservar ahora</a>
-
-      <form class="search-box" id="searchForm" role="search">
-        <div><label for="sQ">Destino</label><input id="sQ" type="text" placeholder="París, Bali, Cusco..." list="dl"><datalist id="dl"></datalist></div>
-        <div><label for="sCat">Tipo de viaje</label><select id="sCat"></select></div>
-        <div><label for="sMax">Presupuesto</label>
-          <select id="sMax"><option value="">Cualquiera</option><option value="800">Hasta US$ 800</option><option value="1500">Hasta US$ 1,500</option><option value="2500">Hasta US$ 2,500</option></select></div>
-        <button class="btn" type="submit">🔍 Buscar</button>
-      </form>
-    </div>
-    <div class="hero-dots" id="heroDots"></div>
-  </section>
-  
-  <!-- STATS -->
-  <div class="stats">
-    <div class="container grid g4">
-      <div class="stat"><b data-count="12000">0</b><span>viajeros felices</span></div>
-      <div class="stat"><b data-count="45">0</b><span>destinos en el mundo</span></div>
-      <div class="stat"><b data-count="15">0</b><span>años de experiencia</span></div>
-      <div class="stat"><b data-count="98" data-suffix="%">0</b><span>nos recomienda</span></div>
-    </div>
-  </div>
-
-  <!-- POR QUÉ -->
-  <section>
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">¿Por qué Horizonte?</span>
-        <h2>Viajar debería ser fácil y emocionante</h2>
-        <p>Nos encargamos de todos los detalles para que tú solo te preocupes de disfrutar.</p>
-      </div>
-      <div class="grid g4">
-        <div class="feature reveal"><div class="ic">💰</div><h3>Mejor precio</h3><p>Tarifas directas con hoteles y aerolíneas. Si encuentras más barato, igualamos.</p></div>
-        <div class="feature reveal"><div class="ic">🛡️</div><h3>Reserva segura</h3><p>Pagos protegidos, cancelación flexible y seguro de viaje opcional.</p></div>
-        <div class="feature reveal"><div class="ic">🧑‍✈️</div><h3>Asesoría experta</h3><p>Agentes que han recorrido los destinos y arman tu itinerario ideal.</p></div>
-        <div class="feature reveal"><div class="ic">📞</div><h3>Soporte 24/7</h3><p>Te acompañamos por WhatsApp durante todo tu viaje, a cualquier hora.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DESTINOS POPULARES -->
-  <section style="padding-top:0">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Destinos populares</span>
-        <h2>Lugares que te quitarán el aliento</h2>
-        <p>Los paquetes favoritos de nuestros viajeros esta temporada.</p>
-      </div>
-      <div class="grid g3" id="popular"></div>
-      <div style="text-align:center;margin-top:2.5rem"><a href="viajes.html" class="btn btn-ghost">Ver todos los viajes →</a></div>
-    </div>
-  </section>
-
-  <!-- OFERTA -->
-  <section style="padding-top:0">
-    <div class="container">
-      <div class="deal reveal">
-        <div>
-          <span class="eyebrow" style="color:#ffd9a8">🔥 Oferta por tiempo limitado</span>
-          <h2>Hasta 10% extra con el cupón <u>VIAJA10</u></h2>
-          <p style="opacity:.92;margin-bottom:1.4rem">Úsalo al reservar cualquier paquete y ahorra más. Válido hasta fin de mes.</p>
-          <a href="reservas.html" class="btn btn-light">Aprovechar oferta</a>
+<body>
+    <!-- Encabezado / Navegación -->
+    <header id="header">
+        <div class="top-bar">
+            <span>Asesoría personalizada en viajes | Agenda tu cita</span>
         </div>
-        <div>
-          <p style="margin-bottom:.6rem;font-weight:500">La oferta termina en:</p>
-          <div class="countdown" id="countdown" aria-live="off">
-            <div><b id="cd-d">00</b><span>Días</span></div><div><b id="cd-h">00</b><span>Horas</span></div>
-            <div><b id="cd-m">00</b><span>Min</span></div><div><b id="cd-s">00</b><span>Seg</span></div>
-          </div>
+        <nav class="navbar">
+            <div class="nav-links desktop-only">
+                <a href="#destinos">Destinos</a>
+                <a href="#experiencias">Experiencias</a>
+                <a href="#nosotros">Nosotros</a>
+            </div>
+            <div class="logo">
+                <h1>HORIZONTE</h1>
+                <span>TRAVEL & TOURS</span>
+            </div>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#" class="menu-btn mobile-only"><i class="fas fa-bars"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección Principal (Hero / Slider) -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <h2 id="hero-title">Lo verdadero permanece</h2>
+                <p id="hero-subtitle">Experiencias de viaje creadas para recordar toda la vida.</p>
+                <a href="#destinos" class="btn-primary">Ver destinos</a>
+            </div>
+            <div class="slider-indicators">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+        <!-- Categorías (Tipos de Viaje) -->
+        <section class="categories section-padding" id="destinos">
+            <div class="section-title">
+                <h2>Elige por tipo de experiencia</h2>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Playas">
+                    <h3>Playas y Relax</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Aventura">
+                    <h3>Aventura</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ciudades">
+                    <h3>Cultural y Ciudades</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cruceros">
+                    <h3>Cruceros</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Información / Valor (Estilo Gemología) -->
+        <section class="info-section section-padding" id="experiencias">
+            <div class="info-container">
+                <div class="info-text">
+                    <h2>El arte de viajar con el toque de un experto</h2>
+                    <p>Cada itinerario es evaluado meticulosamente por nuestros asesores certificados, garantizando seguridad, confort y exclusividad en cada destino que visites.</p>
+                    <ul class="features-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Calidad garantizada</strong>
+                                <span>Alianzas con los mejores hoteles y aerolíneas.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Asistencia 24/7</strong>
+                                <span>Acompañamiento profesional durante todo tu viaje.</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn-secondary">Descubre nuestro servicio</a>
+                </div>
+                <div class="info-image">
+                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asesoría de viajes">
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA de Personalización -->
+        <section class="custom-trip section-padding">
+            <div class="custom-content">
+                <h2>Personaliza tu viaje</h2>
+                <p>Al estilo que siempre soñaste. Cuéntanos tu idea y nuestra agencia la convierte en una ruta hecha solo para ti.</p>
+                <a href="#" class="btn-primary">Contáctanos</a>
+            </div>
+        </section>
+
+        <!-- Proceso Paso a Paso (Estilo "Hecho a mano") -->
+        <section class="process section-padding" id="nosotros">
+            <div class="section-title">
+                <h2>Diseñado a tu medida</h2>
+                <p>Conoce las etapas mediante las cuales damos vida a tu viaje ideal.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <span class="step-num">01</span>
+                    <h3>Inspiración</h3>
+                    <p>Nos reunimos contigo para descubrir tus gustos, destinos soñados y expectativas.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">02</span>
+                    <h3>Diseño del Itinerario</h3>
+                    <p>Armamos una ruta milímetro a milímetro, seleccionando alojamientos y tours exclusivos.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">03</span>
+                    <h3>Reservas y Gestión</h3>
+                    <p>Aseguramos tus espacios con precisión, cuidando cada detalle administrativo.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">04</span>
+                    <h3>El Viaje</h3>
+                    <p>Solo te encargas de disfrutar. Monitoreamos tu viaje para que todo sea perfecto.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>HORIZONTE</h2>
+                <p>Agencia de viajes premium. Una expresión de aventura que trasciende el tiempo.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Atención</h3>
+                <p>Av. Fátima, Víctor Larco Herrera 13009<br>Trujillo, La Libertad, Perú</p>
+                <p>Tel: +51 987 654 321</p>
+                <p>Lun–Sáb: 09:00–18:00</p>
+            </div>
+            <div class="footer-links">
+                <h3>Información</h3>
+                <a href="#">Términos y condiciones</a>
+                <a href="#">Política de privacidad</a>
+                <a href="#">Política de reembolsos</a>
+                <a href="#">Libro de reclamaciones</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- PASOS -->
-  <section style="padding-top:0">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Así de simple</span>
-        <h2>Reserva tu viaje en 4 pasos</h2>
-      </div>
-      <div class="grid g4 steps">
-        <div class="step-card reveal"><h3>Elige tu destino</h3><p>Explora paquetes y filtra por precio, duración o tipo de viaje.</p></div>
-        <div class="step-card reveal"><h3>Personaliza</h3><p>Escoge fecha, viajeros y extras como seguro, traslados o guía.</p></div>
-        <div class="step-card reveal"><h3>Confirma y paga</h3><p>Asegura tu cupo con un adelanto desde el 30%.</p></div>
-        <div class="step-card reveal"><h3>¡A viajar!</h3><p>Recibes tu itinerario, vouchers y soporte durante todo el viaje.</p></div>
-      </div>
-    </div>
-  </section>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Horizonte Travel & Tours. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-  <!-- TESTIMONIOS -->
-  <section style="background:color-mix(in srgb,var(--primary) 6%,var(--bg))">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Opiniones reales</span>
-        <h2>Lo que dicen nuestros viajeros</h2>
-      </div>
-      <div class="slider" id="slider"><div class="slides" id="slides"></div></div>
-      <div class="slider-nav" id="sliderNav"></div>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER -->
-  <section>
-    <div class="container">
-      <div class="cta reveal" id="cta" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=70')">
-        <span class="eyebrow" style="color:#ffb347">Ofertas en tu correo</span>
-        <h2>Recibe los mejores precios antes que nadie</h2>
-        <p style="opacity:.92">Suscríbete y llévate una guía de viaje gratis + 5% de descuento en tu primera reserva.</p>
-        <form class="newsletter" id="newsForm" novalidate>
-          <input type="email" id="newsMail" placeholder="tucorreo@ejemplo.com" aria-label="Correo electrónico" required>
-          <button class="btn" type="submit">Suscribirme</button>
-        </form>
-      </div>
-    </div>
-  </section>
-</main>
-
-<div id="site-footer"></div>
-<script src="js/data.js"></script>
-<script src="js/main.js"></script>
-<script src="js/home.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
