@@ -28,3 +28,15 @@ h2{font-size:clamp(1.8rem,3.4vw,2.7rem);margin-bottom:.8rem}
 .g3{grid-template-columns:repeat(auto-fill,minmax(310px,1fr))}
 .g4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
 .g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.6rem;border-radius:999px;border:2px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;cursor:pointer;transition:.25s;font-size:.95rem}
+.btn:hover{background:var(--accent-d);border-color:var(--accent-d);transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,122,69,.35)}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
+.btn-ghost:hover{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:none}
+.btn-light{background:#fff;color:var(--primary-d);border-color:#fff}
+.btn-light:hover{background:#fff;color:var(--accent);border-color:#fff}
+.btn-sm{padding:.5rem 1rem;font-size:.85rem}
+.btn-block{width:100%}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
