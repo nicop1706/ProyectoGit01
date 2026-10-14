@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reservas · Horizonte Viajes</title>
+<meta name="description" content="Reserva tu paquete turístico en 4 pasos: elige viaje, datos, extras y confirmación.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="reservas.html">
+<div id="site-header"></div>
+<main>
+  <section class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=70')">
+    <div class="container">
+      <div class="crumbs"><a href="index.html">Inicio</a> / Reservas</div>
+      <h1>Reserva tu viaje</h1>
+      <p>En 4 pasos y menos de 3 minutos. Confirmación inmediata.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:3rem">
+    <div class="container booking">
+      <!-- FORMULARIO -->
+      <div class="form-card" id="wizard">
+        <div class="progress" id="progress">
+          <div class="pstep on"><i>1</i>Viaje</div>
+          <div class="pstep"><i>2</i>Viajeros</div>
+          <div class="pstep"><i>3</i>Extras y pago</div>
+          <div class="pstep"><i>4</i>Confirmación</div>
+        </div>
+
+        <form id="bookForm" novalidate>
+          <!-- Paso 1 -->
+          <div class="wstep on" data-step="1">
+            <h2 style="font-size:1.5rem">¿A dónde y cuándo?</h2><br>
+            <div class="field"><label for="destino">Destino</label>
+              <select id="destino" required></select><div class="msg">Elige un destino.</div></div>
+            <div class="field"><label for="fecha">Fecha de salida</label>
+              <input type="date" id="fecha" required><div class="msg" id="fechaMsg">Elige una fecha futura.</div></div>
+            <div class="row">
+              <div class="field"><label>Adultos <small style="color:var(--muted)">(12+ años)</small></label>
+                <div class="counter"><button type="button" data-c="adultos" data-d="-1" aria-label="Menos adultos">−</button><b id="adultosV">2</b><button type="button" data-c="adultos" data-d="1" aria-label="Más adultos">+</button></div></div>
+              <div class="field"><label>Niños <small style="color:var(--muted)">(2–11 años, 40% dto.)</small></label>
+                <div class="counter"><button type="button" data-c="ninos" data-d="-1" aria-label="Menos niños">−</button><b id="ninosV">0</b><button type="button" data-c="ninos" data-d="1" aria-label="Más niños">+</button></div></div>
+            </div>
+          </div>
