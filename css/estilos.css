@@ -178,3 +178,28 @@ h2{font-size:clamp(1.8rem,3.4vw,2.7rem);margin-bottom:.8rem}
 .chip.on,.chip:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
 .result-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;color:var(--muted);font-size:.92rem;flex-wrap:wrap;gap:.5rem}
 .empty{text-align:center;padding:4rem 1rem;color:var(--muted);grid-column:1/-1}
+
+
+/* Modal / Lightbox */
+.overlay{position:fixed;inset:0;background:rgba(5,15,22,.75);backdrop-filter:blur(4px);z-index:300;display:none;align-items:center;justify-content:center;padding:1rem}
+.overlay.open{display:flex;animation:fade .25s}
+@keyframes fade{from{opacity:0}}
+.modal{background:var(--surface);border-radius:24px;max-width:900px;width:100%;max-height:92vh;overflow:auto;position:relative;display:grid;grid-template-columns:1fr 1fr}
+.modal-img{min-height:320px;background:center/cover}
+.modal-body{padding:2rem}
+.modal-body ul.inc{margin:1rem 0;display:grid;gap:.4rem;font-size:.93rem}
+.modal-body ul.inc li::before{content:"✔";color:var(--primary);margin-right:.5rem;font-weight:700}
+.close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:none;background:rgba(0,0,0,.55);color:#fff;font-size:1.2rem;cursor:pointer;z-index:2}
+@media(max-width:760px){.modal{grid-template-columns:1fr}.modal-img{min-height:220px}}
+.lightbox img{max-width:92vw;max-height:84vh;border-radius:16px;box-shadow:var(--shadow-lg)}
+.lightbox .cap{position:absolute;bottom:1.4rem;left:0;right:0;text-align:center;color:#fff;font-weight:500}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:none;background:rgba(255,255,255,.2);color:#fff;font-size:1.4rem;cursor:pointer}
+.lb-prev{left:1rem}.lb-next{right:1rem}
+
+/* Galería */
+.masonry{columns:4 240px;column-gap:1rem}
+.m-item{position:relative;margin-bottom:1rem;border-radius:16px;overflow:hidden;cursor:zoom-in;break-inside:avoid;background:linear-gradient(135deg,#0e7c86,#ffb347);min-height:140px}
+.m-item img{width:100%;transition:transform .6s}
+.m-item:hover img{transform:scale(1.08)}
+.m-item span{position:absolute;inset:auto 0 0 0;padding:1.5rem .9rem .7rem;color:#fff;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.75));opacity:0;transition:.3s}
+.m-item:hover span{opacity:1}
