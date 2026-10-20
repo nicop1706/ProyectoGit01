@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- ===== PARTE 1/3 · Estructura base: head, header y hero con buscador ===== -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horizonte Viajes · Paquetes turísticos que emocionan</title>
+<meta name="description" content="Agencia de viajes con paquetes a Machu Picchu, Cancún, París, Bali, Japón y más. Reserva online fácil y seguro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="index.html">
+<div id="site-header"></div>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-slides" id="heroSlides" aria-hidden="true"></div>
+    <div class="container">
+      <span class="eyebrow" style="color:#ffb347">✈ Tu próxima aventura empieza aquí</span>
+      <h1>El mundo te está esperando. <em>Vívelo.</em></h1>
+      <p class="lead">Paquetes turísticos con todo incluido, asesoría personalizada y la mejor relación calidad–precio. Reserva en minutos, viaja sin preocupaciones.</p>
+      <a href="viajes.html" class="btn">Explorar viajes</a>
+      <a href="reservas.html" class="btn btn-light" style="margin-left:.5rem">Reservar ahora</a>
+
+      <form class="search-box" id="searchForm" role="search">
+        <div><label for="sQ">Destino</label><input id="sQ" type="text" placeholder="París, Bali, Cusco..." list="dl"><datalist id="dl"></datalist></div>
+        <div><label for="sCat">Tipo de viaje</label><select id="sCat"></select></div>
+        <div><label for="sMax">Presupuesto</label>
+          <select id="sMax"><option value="">Cualquiera</option><option value="800">Hasta US$ 800</option><option value="1500">Hasta US$ 1,500</option><option value="2500">Hasta US$ 2,500</option></select></div>
+        <button class="btn" type="submit">🔍 Buscar</button>
+      </form>
+    </div>
+    <div class="hero-dots" id="heroDots"></div>
+  </section>
+  </main>
+</body>
+</html>
