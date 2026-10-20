@@ -97,3 +97,89 @@ function initReveal() {
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
   $$('.reveal:not(.in)').forEach(el => io.observe(el));
 }
+
+const favs = {
+  list: () => store.get('hz_fav', []),
+  has: id => favs.list().includes(id),
+  toggle(id) {
+    let l = favs.list(); const on = !l.includes(id);
+    l = on ? [...l, id] : l.filter(x => x !== id);
+    store.set('hz_fav', l); return on;
+  }
+};
+ 
+/* ---------- Tarjeta de destino ---------- */
+function cardHTML(d) {
+  return `
+  <article class="card reveal" data-id="${d.id}">
+    <div class="card-img">
+      <img src="${imgUrl(d, 700)}" alt="${esc(d.nombre)}, ${esc(d.pais)}" loading="lazy" onerror="this.style.display='none'">
+      <span class="badge">${esc(d.badge)}</span>
+      <button class="fav ${favs.has(d.id) ? 'on' : ''}" data-fav="${d.id}" aria-label="Guardar en favoritos" aria-pressed="${favs.has(d.id)}">♥</button>
+      <span class="rating">★ ${d.rating.toFixed(1)}</span>
+    </div>
+    <div class="card-body">
+      <div class="meta"><span>📍 ${esc(d.pais)}</span><span>🕒 ${d.dias} días</span></div>
+      <h3>${esc(d.nombre)}</h3>
+      <p>${esc(d.desc)}</p>
+      <div class="card-foot">
+        <div class="price"><small>desde</small><b>${money(d.precio)}</b><s>${money(d.antes)}</s></div>
+        <div class="card-actions">
+          <button class="btn btn-ghost btn-sm" data-detail="${d.id}">Ver más</button>
+          <a class="btn btn-sm" href="reservas.html?id=${d.id}">Reservar</a>
+        </div>
+      </div>
+    </div>
+  </article>`;
+}
+ 
+function renderCards(container, list) {
+  container.innerHTML = list.length ? list.map(cardHTML).join('') : '<div class="empty"><h3>😕 Sin resultados</h3><p>Prueba con otros filtros o palabras.</p></div>';
+  initReveal();
+}
+ 
+/* Delegación global: favoritos y detalle */
+document.addEventListener('click', e => {
+  const f = e.target.closest('[data-fav]');
+  if (f) {
+    const on = favs.toggle(f.dataset.fav);
+    $$(`[data-fav="${f.dataset.fav}"]`).forEach(b => { b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+    toast(on ? '❤️ Agregado a tus favoritos' : 'Quitado de favoritos');
+    document.dispatchEvent(new CustomEvent('favschanged'));
+    return;
+  }
+  const d = e.target.closest('[data-detail]');
+  if (d) openDetail(d.dataset.detail);
+});
+ 
+/* ---------- Modal de detalle ---------- */
+function openDetail(id) {
+  const d = byId(id); if (!d) return;
+  let ov = $('#detailOv');
+  if (!ov) { ov = document.createElement('div'); ov.id = 'detailOv'; ov.className = 'overlay'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true'); document.body.appendChild(ov); }
+  ov.innerHTML = `
+    <div class="modal">
+      <button class="close" aria-label="Cerrar">✕</button>
+      <div class="modal-img" style="background-image:url('${imgUrl(d, 900)}'),linear-gradient(135deg,#0e7c86,#ffb347)"></div>
+      <div class="modal-body">
+        <span class="eyebrow">${esc(d.pais)} · ${d.dias} días</span>
+        <h2 style="font-size:1.8rem">${esc(d.nombre)}</h2>
+        <p style="color:var(--muted)">${esc(d.desc)}</p>
+        <ul class="inc">${d.incluye.map(i => `<li>${esc(i)}</li>`).join('')}</ul>
+        <div class="price" style="margin:1rem 0"><small>desde por persona</small><b>${money(d.precio)}</b><s>${money(d.antes)}</s></div>
+        <a class="btn btn-block" href="reservas.html?id=${d.id}">Reservar este viaje</a>
+      </div>
+    </div>`;
+  ov.classList.add('open'); document.body.style.overflow = 'hidden';
+  const close = () => { ov.classList.remove('open'); document.body.style.overflow = ''; document.removeEventListener('keydown', esc_); };
+  const esc_ = e => { if (e.key === 'Escape') close(); };
+  ov.onclick = e => { if (e.target === ov || e.target.closest('.close')) close(); };
+  document.addEventListener('keydown', esc_);
+  $('.close', ov).focus();
+}
+ 
+/* ---------- Arranque ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  renderLayout(); initChrome(); initReveal();
+  document.dispatchEvent(new Event('layoutready'));
+});
