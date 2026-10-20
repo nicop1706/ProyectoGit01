@@ -98,3 +98,24 @@ h2{font-size:clamp(1.8rem,3.4vw,2.7rem);margin-bottom:.8rem}
 .feature:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
 .feature .ic{width:64px;height:64px;margin:0 auto 1rem;border-radius:20px;display:grid;place-items:center;font-size:1.9rem;background:color-mix(in srgb,var(--primary) 14%,transparent)}
 .feature p{color:var(--muted);font-size:.93rem;margin-top:.4rem}
+
+/* ===== cards.css ===== */
+.card{background:var(--surface);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:.35s;border:1px solid var(--border);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(135deg,#0e7c86,#ffb347)}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.card:hover .card-img img{transform:scale(1.1)}
+.badge{position:absolute;top:12px;left:12px;background:var(--accent);color:#fff;font-weight:600;font-size:.78rem;padding:.3rem .75rem;border-radius:999px}
+.badge.alt{background:var(--primary)}
+.fav{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.92);cursor:pointer;font-size:1.1rem;color:#aaa;transition:.2s}
+.fav:hover{transform:scale(1.15)}
+.fav.on{color:#e8334a}
+.rating{position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,.6);color:#fff;font-size:.8rem;padding:.2rem .6rem;border-radius:999px;backdrop-filter:blur(4px)}
+.card-body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.meta{font-size:.82rem;color:var(--muted);display:flex;gap:.8rem;flex-wrap:wrap}
+.card-body p{color:var(--muted);font-size:.9rem;flex:1}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-top:.6rem;flex-wrap:wrap}
+.price small{display:block;font-size:.7rem;color:var(--muted);line-height:1}
+.price b{font-size:1.5rem;color:var(--primary)}
+.price s{font-size:.85rem;color:var(--muted);margin-left:.3rem}
+.card-actions{display:flex;gap:.4rem}
