@@ -38,3 +38,28 @@ h2{font-size:clamp(1.8rem,3.4vw,2.7rem);margin-bottom:.8rem}
 .btn-sm{padding:.5rem 1rem;font-size:.85rem}
 .btn-block{width:100%}
 .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* ===== header.css ===== */
+.header{position:fixed;inset:0 0 auto 0;z-index:100;transition:.3s;padding:1rem 0}
+.header.scrolled,.header.solid{background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.08);padding:.6rem 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1.3rem;color:#fff}
+.logo span.ic{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ffb347);font-size:1.2rem}
+.header.scrolled .logo,.header.solid .logo{color:var(--text)}
+.nav-links{display:flex;align-items:center;gap:.4rem}
+.nav-links a{padding:.5rem .95rem;border-radius:999px;color:#fff;font-weight:500;font-size:.95rem;transition:.2s}
+.header.scrolled .nav-links a,.header.solid .nav-links a{color:var(--text)}
+.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.18);color:var(--accent)}
+.header.scrolled .nav-links a:hover,.header.scrolled .nav-links a.active,.header.solid .nav-links a:hover,.header.solid .nav-links a.active{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.18);color:#fff;cursor:pointer;font-size:1.1rem;display:grid;place-items:center;transition:.2s}
+.header.scrolled .icon-btn,.header.solid .icon-btn{background:var(--bg);color:var(--text)}
+.icon-btn:hover{transform:scale(1.08)}
+.burger{display:none}
+@media(max-width:900px){
+  .burger{display:grid}
+  .nav-links{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--surface);flex-direction:column;align-items:stretch;padding:5rem 1.5rem;transform:translateX(100%);transition:.3s;box-shadow:var(--shadow-lg)}
+  .nav-links.open{transform:none}
+  .nav-links a{color:var(--text)!important;font-size:1.05rem}
+  .nav-cta{display:none}
+}
