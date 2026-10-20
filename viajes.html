@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Viajes y paquetes · Horizonte Viajes</title>
+<meta name="description" content="Explora paquetes turísticos por destino, precio y duración. Reserva online con Horizonte Viajes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="viajes.html">
+<div id="site-header"></div>
+<main>
+  <section class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=70')">
+    <div class="container">
+      <div class="crumbs"><a href="index.html">Inicio</a> / Viajes</div>
+      <h1>Encuentra tu viaje ideal</h1>
+      <p>Filtra por tipo, presupuesto y duración. Todos los paquetes se pueden personalizar.</p>
+    </div>
+  </section>
+  <section style="padding-top:3rem">
+    <div class="container">
+      <form class="filters" id="filters" onsubmit="return false">
+        <div><label for="fQ">Buscar</label><input id="fQ" type="search" placeholder="Destino, país o palabra clave"></div>
+        <div><label for="fCont">Continente</label>
+          <select id="fCont"><option value="">Todos</option><option>América</option><option>Europa</option><option>Asia</option></select></div>
+        <div><label for="fDias">Duración</label>
+          <select id="fDias"><option value="">Cualquiera</option><option value="5">Hasta 5 días</option><option value="7">Hasta 7 días</option><option value="10">Hasta 10 días</option></select></div>
+        <div><label for="fMax">Precio máx.: <b id="fMaxV">US$ 3,500</b></label>
+          <input id="fMax" type="range" min="300" max="3500" step="50" value="3500" style="padding:0"></div>
+      </form>
+      <div class="chips" id="chips" role="group" aria-label="Categorías"></div>
+      <div class="result-bar">
+        <span id="count"></span>
+        <label>Ordenar:
+          <select id="sort" style="padding:.4rem .7rem;border-radius:10px;border:1.5px solid var(--border);background:var(--surface)">
+            <option value="pop">Más populares</option><option value="asc">Precio: menor a mayor</option>
+            <option value="desc">Precio: mayor a menor</option><option value="dias">Duración</option><option value="fav">Solo favoritos</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid g3" id="grid"></div>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="cta reveal" style="background-image:url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1600&q=70')">
+        <h2>¿No encuentras lo que buscas?</h2>
+        <p style="opacity:.92;margin-bottom:1.4rem">Diseñamos tu viaje a medida: destino, fechas, presupuesto y estilo.</p>
+        <a href="contacto.html" class="btn">Cotizar viaje a medida</a>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/viajes.js"></script>
+</body>
+</html>

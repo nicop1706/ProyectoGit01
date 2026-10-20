@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contáctanos · Horizonte Viajes</title>
+<meta name="description" content="Escríbenos o visítanos. Te ayudamos a planear tu viaje ideal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="contacto.html">
+<div id="site-header"></div>
+<main>
+  <section class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=1600&q=70')">
+    <div class="container">
+      <div class="crumbs"><a href="index.html">Inicio</a> / Contáctanos</div>
+      <h1>Hablemos de tu próximo viaje</h1>
+      <p>Cuéntanos qué sueñas y nuestros asesores te responden en menos de 24 horas.</p>
+    </div>
+  </section>
+  <section style="padding-top:3rem">
+    <div class="container grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;align-items:start">
+      <div class="form-card reveal">
+        <h2 style="font-size:1.6rem;margin-bottom:1.2rem">Envíanos un mensaje</h2>
+        <form id="contactForm" novalidate>
+          <div class="row">
+            <div class="field"><label for="cn">Nombre</label><input id="cn" autocomplete="name" placeholder="Tu nombre"><div class="msg">Ingresa tu nombre.</div></div>
+            <div class="field"><label for="ce">Correo</label><input id="ce" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com"><div class="msg">Correo inválido.</div></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="ct">Teléfono <small style="color:var(--muted)">(opcional)</small></label><input id="ct" type="tel" placeholder="+51 999 888 777"></div>
+            <div class="field"><label for="cs">Motivo</label>
+              <select id="cs"><option>Cotizar un viaje</option><option>Viaje a medida</option><option>Grupos o empresas</option><option>Estado de mi reserva</option><option>Otro</option></select></div>
+          </div>
+          <div class="field"><label for="cm">Mensaje <small style="color:var(--muted)" id="cc">0/500</small></label>
+            <textarea id="cm" rows="5" maxlength="500" placeholder="Destino, fechas aproximadas, número de personas..."></textarea><div class="msg">Escribe al menos 10 caracteres.</div></div>
+          <button class="btn btn-block" type="submit">📨 Enviar mensaje</button>
+        </form>
+      </div>
+
+      <div style="display:grid;gap:1rem" class="reveal">
+        <div class="info-box"><div class="ic">📍</div><div><h4>Oficina principal</h4><p>Av. Larco 1301, Miraflores, Lima, Perú</p></div></div>
+        <div class="info-box"><div class="ic">📞</div><div><h4>Teléfono / WhatsApp</h4><p>+51 999 888 777<br><a href="https://wa.me/51999888777" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600">Escribir por WhatsApp →</a></p></div></div>
+        <div class="info-box"><div class="ic">✉️</div><div><h4>Correo</h4><p>hola@horizonteviajes.pe</p></div></div>
+        <div class="info-box"><div class="ic">🕘</div><div><h4>Horario</h4><p>Lunes a sábado: 9:00 – 19:00<br>Soporte en viaje: 24/7</p></div></div>
+        <iframe class="map" title="Mapa de la oficina en Miraflores, Lima" loading="lazy"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-77.0450%2C-12.1270%2C-77.0150%2C-12.1070&layer=mapnik&marker=-12.1170%2C-77.0300"></iframe>
+      </div>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <div class="container" style="max-width:820px">
+      <div class="section-head reveal"><span class="eyebrow">Ayuda</span><h2>Preguntas frecuentes</h2></div>
+      <div id="faq"></div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/contacto.js"></script>
+</body>
+</html>
