@@ -257,3 +257,16 @@ table.res td,table.res th{padding:.6rem;border-bottom:1px solid var(--border);te
 .split{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
 .split img{border-radius:28px;box-shadow:var(--shadow-lg);aspect-ratio:4/3;object-fit:cover;width:100%;background:linear-gradient(135deg,#0e7c86,#ffb347)}
 @media(max-width:800px){.split{grid-template-columns:1fr}}
+
+/* ===== footer.css =====*/
+.footer{background:#0b1a22;color:#b8c5cf;padding:4rem 0 1.5rem}
+.footer .logo{color:#fff;margin-bottom:.8rem}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:2rem}
+@media(max-width:850px){.fgrid{grid-template-columns:1fr 1fr}}
+.footer h4{color:#fff;margin-bottom:1rem}
+.footer li{margin-bottom:.5rem;font-size:.92rem}
+.footer a:hover{color:var(--accent)}
+.social{display:flex;gap:.6rem;margin-top:1rem}
+.social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center}
+.social a:hover{background:var(--accent);color:#fff}
+.copy{border-top:1px solid rgba(255,255,255,.1);margin-top:2.5rem;padding-top:1.3rem;text-align:center;font-size:.85rem}
