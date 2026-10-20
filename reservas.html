@@ -19,6 +19,87 @@
       <p>En 4 pasos y menos de 3 minutos. Confirmación inmediata.</p>
     </div>
   </section>
+  <section style="padding-top:3rem">
+    <div class="container booking">
+      <div class="form-card" id="wizard">
+        <div class="progress" id="progress">
+          <div class="pstep on"><i>1</i>Viaje</div>
+          <div class="pstep"><i>2</i>Viajeros</div>
+          <div class="pstep"><i>3</i>Extras y pago</div>
+          <div class="pstep"><i>4</i>Confirmación</div>
+        </div>
+
+        <form id="bookForm" novalidate>
+          <div class="wstep on" data-step="1">
+            <h2 style="font-size:1.5rem">¿A dónde y cuándo?</h2><br>
+            <div class="field"><label for="destino">Destino</label>
+              <select id="destino" required></select><div class="msg">Elige un destino.</div></div>
+            <div class="field"><label for="fecha">Fecha de salida</label>
+              <input type="date" id="fecha" required><div class="msg" id="fechaMsg">Elige una fecha futura.</div></div>
+            <div class="row">
+              <div class="field"><label>Adultos <small style="color:var(--muted)">(12+ años)</small></label>
+                <div class="counter"><button type="button" data-c="adultos" data-d="-1" aria-label="Menos adultos">−</button><b id="adultosV">2</b><button type="button" data-c="adultos" data-d="1" aria-label="Más adultos">+</button></div></div>
+              <div class="field"><label>Niños <small style="color:var(--muted)">(2–11 años, 40% dto.)</small></label>
+                <div class="counter"><button type="button" data-c="ninos" data-d="-1" aria-label="Menos niños">−</button><b id="ninosV">0</b><button type="button" data-c="ninos" data-d="1" aria-label="Más niños">+</button></div></div>
+            </div>
+          </div>
+
+          <div class="wstep" data-step="2">
+            <h2 style="font-size:1.5rem">Datos del viajero principal</h2><br>
+            <div class="row">
+              <div class="field"><label for="nombre">Nombre completo</label><input id="nombre" autocomplete="name" required placeholder="Como aparece en tu documento"><div class="msg">Ingresa tu nombre (mín. 3 letras).</div></div>
+              <div class="field"><label for="doc">DNI / Pasaporte</label><input id="doc" required placeholder="12345678"><div class="msg">Documento inválido (6–15 caracteres).</div></div>
+            </div>
+            <div class="row">
+              <div class="field"><label for="email">Correo electrónico</label><input type="email" id="email" autocomplete="email" required placeholder="tucorreo@ejemplo.com"><div class="msg">Correo inválido.</div></div>
+              <div class="field"><label for="tel">Teléfono / WhatsApp</label><input type="tel" id="tel" autocomplete="tel" required placeholder="+51 999 888 777"><div class="msg">Teléfono inválido (mín. 7 dígitos).</div></div>
+            </div>
+            <div class="field"><label for="notas">Peticiones especiales <small style="color:var(--muted)">(opcional)</small></label>
+              <textarea id="notas" rows="3" placeholder="Alergias, celebración especial, accesibilidad..."></textarea></div>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="wstep" data-step="3">
+            <h2 style="font-size:1.5rem">Personaliza tu paquete</h2><br>
+            <div class="opt-grid" id="extras"></div><br>
+            <h3>Forma de pago</h3><br>
+            <div class="opt-grid">
+              <label class="opt"><input type="radio" name="pago" value="30" checked><span><b>Reservar con 30%</b><small>Saldo hasta 15 días antes</small></span></label>
+              <label class="opt"><input type="radio" name="pago" value="100"><span><b>Pagar el total</b><small>5% extra de descuento</small></span></label>
+            </div><br>
+            <div class="opt-grid">
+              <label class="opt"><input type="radio" name="metodo" value="Tarjeta" checked><span><b>💳 Tarjeta</b><small>Visa / Mastercard</small></span></label>
+              <label class="opt"><input type="radio" name="metodo" value="Yape/Plin"><span><b>📱 Yape / Plin</b><small>Pago inmediato</small></span></label>
+              <label class="opt"><input type="radio" name="metodo" value="Transferencia"><span><b>🏦 Transferencia</b><small>BCP / BBVA / Interbank</small></span></label>
+            </div>
+            <p style="font-size:.82rem;color:var(--muted);margin-top:.6rem">ℹ️ Sitio de demostración: no se procesan pagos reales ni se guardan datos de tarjetas.</p><br>
+            <div class="field"><label for="cupon">¿Tienes un cupón?</label>
+              <div class="coupon"><input id="cupon" placeholder="VIAJA10"><button class="btn btn-ghost btn-sm" type="button" id="applyCoupon">Aplicar</button></div></div>
+            <div class="field" id="termsF"><label style="display:flex;gap:.6rem;align-items:flex-start;font-weight:400">
+              <input type="checkbox" id="terms" style="width:auto;margin-top:.3rem">Acepto los términos, la política de cancelación y el tratamiento de mis datos.</label>
+              <div class="msg">Debes aceptar los términos para continuar.</div></div>
+          </div>
+
+          <div class="wstep" data-step="4" id="doneStep"></div>
+
+          <div class="wnav" id="wnav">
+            <button type="button" class="btn btn-ghost" id="prev" style="visibility:hidden">← Atrás</button>
+            <button type="button" class="btn" id="next">Continuar →</button>
+          </div>
+        </form>
+      </div>
+
+      <aside class="summary" aria-label="Resumen de tu reserva">
+        <img id="sumImg" src="" alt="">
+        <div class="in">
+          <h3 id="sumName">Tu viaje</h3>
+          <p id="sumMeta" style="color:var(--muted);font-size:.88rem;margin-bottom:.6rem"></p>
+          <div id="sumLines"></div>
+          <p style="font-size:.78rem;color:var(--muted);margin-top:.8rem">🔒 Cancelación gratuita hasta 30 días antes de la salida.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
   </main>
 </body>
 </html>
