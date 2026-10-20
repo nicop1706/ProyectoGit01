@@ -35,3 +35,42 @@ const heroIds = ['machu-picchu', 'santorini', 'bali', 'maldivas'];
  
   /* Destinos populares */
   renderCards($('#popular'), DESTINOS.filter(d => d.rating >= 4.8).slice(0, 6));
+
+  const now = new Date(), end = new Date(now.getFullYear(), now.getMonth() + 1, 1, 0, 0, 0);
+const pad = n => String(n).padStart(2, '0');
+const tick = () => {
+  const ms = Math.max(end - new Date(), 0), s = Math.floor(ms / 1000);
+  $('#cd-d').textContent = pad(Math.floor(s / 86400));
+  $('#cd-h').textContent = pad(Math.floor(s % 86400 / 3600));
+  $('#cd-m').textContent = pad(Math.floor(s % 3600 / 60));
+  $('#cd-s').textContent = pad(s % 60);
+};
+tick(); setInterval(tick, 1000);
+
+/* Testimonios */
+const slides = $('#slides'), nav = $('#sliderNav');
+slides.innerHTML = TESTIMONIOS.map(t => `
+  <div class="slide"><div class="quote">
+    <div class="stars" aria-label="${t.r} de 5 estrellas">${'★'.repeat(t.r)}${'☆'.repeat(5 - t.r)}</div>
+    <p>"${esc(t.t)}"</p>
+    <div class="who"><div class="av" style="display:grid;place-items:center;color:#fff;font-weight:700">${esc(t.n[0])}</div>
+    <div style="text-align:left"><b>${esc(t.n)}</b><br><small style="color:var(--muted)">${esc(t.c)} · ${esc(byId(t.d).nombre)}</small></div></div>
+  </div></div>`).join('');
+
+nav.innerHTML = TESTIMONIOS.map((_, i) => `<button class="${i === 0 ? 'active' : ''}" aria-label="Opinión ${i + 1}"></button>`).join('');
+
+let ti = 0, tt;
+const showT = i => { ti = (i + TESTIMONIOS.length) % TESTIMONIOS.length; slides.style.transform = `translateX(-${ti * 100}%)`; $$('button', nav).forEach((b, k) => b.classList.toggle('active', k === ti)); }; const startT = () => { clearInterval(tt); tt = setInterval(() => showT(ti + 1), 5500); }; nav.addEventListener('click', e => { const b = e.target.closest('button'); if (b) { showT($$('button', nav).indexOf(b)); startT(); } });
+let sx = 0; const sl = $('#slider');
+sl.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+sl.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) { showT(ti + (dx < 0 ? 1 : -1)); startT(); } });
+startT();
+
+/* Newsletter */
+$('#newsForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const m = $('#newsMail').value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m)) { toast('⚠️ Ingresa un correo válido'); return; }
+  const l = store.get('hz_news', []); if (!l.includes(m)) store.set('hz_news', [...l, m]);
+  e.target.reset(); toast('🎉 ¡Gracias por suscribirte! Revisa tu correo.');
+});
