@@ -22,3 +22,12 @@ const params = new URLSearchParams(location.search);
     renderCards(grid, list);
     syncMax();
   }
+
+  chips.addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) { st.cat = c.dataset.cat; apply(); } });
+$('#fQ').addEventListener('input', e => { st.q = e.target.value; apply(); });
+$('#fCont').addEventListener('change', e => { st.cont = e.target.value; apply(); });
+$('#fDias').addEventListener('change', e => { st.dias = e.target.value; apply(); });
+$('#fMax').addEventListener('input', e => { st.max = +e.target.value; apply(); });
+$('#sort').addEventListener('change', e => { st.sort = e.target.value; apply(); });
+document.addEventListener('favschanged', () => { if (st.sort === 'fav') apply(); });
+apply();
