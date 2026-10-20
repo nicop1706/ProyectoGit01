@@ -19,6 +19,30 @@
       <p>Filtra por tipo, presupuesto y duración. Todos los paquetes se pueden personalizar.</p>
     </div>
   </section>
+  <section style="padding-top:3rem">
+    <div class="container">
+      <form class="filters" id="filters" onsubmit="return false">
+        <div><label for="fQ">Buscar</label><input id="fQ" type="search" placeholder="Destino, país o palabra clave"></div>
+        <div><label for="fCont">Continente</label>
+          <select id="fCont"><option value="">Todos</option><option>América</option><option>Europa</option><option>Asia</option></select></div>
+        <div><label for="fDias">Duración</label>
+          <select id="fDias"><option value="">Cualquiera</option><option value="5">Hasta 5 días</option><option value="7">Hasta 7 días</option><option value="10">Hasta 10 días</option></select></div>
+        <div><label for="fMax">Precio máx.: <b id="fMaxV">US$ 3,500</b></label>
+          <input id="fMax" type="range" min="300" max="3500" step="50" value="3500" style="padding:0"></div>
+      </form>
+      <div class="chips" id="chips" role="group" aria-label="Categorías"></div>
+      <div class="result-bar">
+        <span id="count"></span>
+        <label>Ordenar:
+          <select id="sort" style="padding:.4rem .7rem;border-radius:10px;border:1.5px solid var(--border);background:var(--surface)">
+            <option value="pop">Más populares</option><option value="asc">Precio: menor a mayor</option>
+            <option value="desc">Precio: mayor a menor</option><option value="dias">Duración</option><option value="fav">Solo favoritos</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid g3" id="grid"></div>
+    </div>
+  </section>
   </main>
 </body>
 </html>
