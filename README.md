@@ -101,9 +101,3 @@ Proyecto académico en desarrollo.
 Código fuente disponible en GitHub:
 
 https://github.com/nicop1706/ProyectoGit01
-
-## Créditos
-
-Desarrollado en equipo con fines educativos, utilizando HTML, CSS y JavaScript.
-
-**Horizonte Viajes — Explora el mundo, vive nuevas experiencias.**
